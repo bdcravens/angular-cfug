@@ -1,0 +1,37 @@
+.art-listing{
+    height: 300px;
+}
+
+.art-listing.ng-enter,
+.art-listing.ng-leave,
+.art-listing.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.art-listing.ng-enter,
+.art-listing.ng-move {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.art-listing.ng-move.ng-move-active,
+.art-listing.ng-enter.ng-enter-active {
+  opacity: 1;
+  height: 300px;
+}
+
+.art-listing.ng-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+
+.art-listing.ng-leave.ng-leave-active {
+  opacity: 0;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}

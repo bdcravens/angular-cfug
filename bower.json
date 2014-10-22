@@ -1,0 +1,23 @@
+{
+  "name": "AngularCF",
+  "version": "0.0.0",
+  "authors": [
+    "John C. Bland II <johncblandii@gmail.com>"
+  ],
+  "description": "Angular JS presentation for CF",
+  "main": "js/app.js",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angular#1.3.0",
+    "bootstrap": "bootstrap#3.2.0"
+  }
+}

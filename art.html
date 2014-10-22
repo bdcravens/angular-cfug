@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="angularCF">
+    <head>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/cover.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+    <body class="ng-cloak">
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">AngularCF</h3>
+                            <ul class="nav masthead-nav">
+                                <!-- Using the controller `as` here -->
+                                <li class="active" ng-controller="CartController as cart"> Items in Cart: {{cart.cartLength}} </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="inner cover" data-ng-controller="ArtController">
+                        <h1 class="cover-heading">Amazing Art</h1>
+                        <p class="lead" ng-show="artPieces != null && artPieces.length == 0">GASP! There's an art thief among us!</p>
+                        <div ng-show="artPieces.length">
+                            <p class="lead">We have {{artPieces.length}} pieces of art.</p>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6 art-listing" ng-repeat="art in artPieces | orderBy:['ARTNAME']">
+                                    <div class="thumbnail">
+                                        <img src="http://placehold.it/150x100" alt="{{art.DESCRIPTION}}" />
+                                        <div class="caption">
+                                            <h3>{{art.ARTNAME}}</h3>
+                                            <p> {{art.DESCRIPTION}} </p>
+                                            <p> {{art.PRICE | currency}} </p>
+                                            <button class="btn btn-primary" role="button" ng-click="addToCart(art)">Add to Cart</button>
+                                            <button class="btn btn-danger" role="button" ng-click="deleteArt(art)">Destroy Art</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
