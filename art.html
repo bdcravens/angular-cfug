@@ -29,8 +29,13 @@
                         <p class="lead" ng-show="artPieces != null && artPieces.length == 0">GASP! There's an art thief among us!</p>
                         <div ng-show="artPieces.length">
                             <p class="lead">We have {{artPieces.length}} pieces of art.</p>
+                            <form role="form">
+                              <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search for Art" ng-model="searchText" />
+                              </div>
+                            </div>
                             <div class="row">
-                                <div class="col-sm-6 col-md-6 art-listing" ng-repeat="art in artPieces | orderBy:['ARTNAME']">
+                                <div class="col-sm-6 col-md-6 art-listing" ng-animate="'animate'" ng-repeat="art in artPieces | orderBy:['ARTNAME'] | filter:searchText track by art.ARTNAME">
                                     <div class="thumbnail">
                                         <img src="http://placehold.it/150x100" alt="{{art.DESCRIPTION}}" />
                                         <div class="caption">

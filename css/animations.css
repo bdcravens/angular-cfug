@@ -5,10 +5,10 @@
 .art-listing.ng-enter,
 .art-listing.ng-leave,
 .art-listing.ng-move {
-  -webkit-transition: 0.5s linear all;
-  -moz-transition: 0.5s linear all;
-  -o-transition: 0.5s linear all;
-  transition: 0.5s linear all;
+  -webkit-transition: 0.3s linear all;
+  -moz-transition: 0.3s linear all;
+  -o-transition: 0.3s linear all;
+  transition: 0.3s linear all;
 }
 
 .art-listing.ng-enter,
