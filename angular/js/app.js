@@ -69,7 +69,7 @@ var angularCF = angular.module("angularCF", ['ngAnimate'])
     }])
 
     // A simple, global data management service
-    .factory("CartService", ['$rootScope', '$http', '$q', function($rootScope, $http, $q){
+    .factory("CartService", ['$rootScope', '$http', function($rootScope, $http){
         var items = [],
             CART_UPDATED = "CART::UPDATED"; // custom event name
 
@@ -80,7 +80,7 @@ var angularCF = angular.module("angularCF", ['ngAnimate'])
         };
 
         var onCartUpdate = function($scope, handler){
-            $rootScope.$on(CART_UPDATED, function(event, length){
+            $scope.$on(CART_UPDATED, function(event, length){
                 if (handler)
                     handler(length);
             });
