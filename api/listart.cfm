@@ -1,3 +1,5 @@
+<cfheader name="Access-Control-Allow-Origin" value="*">
+
 <cfquery name="art_pieces" datasource="cfartgallery">
 select artid, artname, description, price from art
 </cfquery>

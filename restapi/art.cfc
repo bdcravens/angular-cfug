@@ -1,6 +1,10 @@
 <cfcomponent rest="true" restpath="artService">
 
+    <!--- if you put <cfheader> here, for some reason it duplicates the header,
+    so necessary to replicate in each function --->
+
     <cffunction name="artList" access="remote" returntype="array" httpmethod="GET">
+        <cfheader name="Access-Control-Allow-Origin" value="*">
         <cfquery name="art_pieces" datasource="cfartgallery">
         select artid, artname, description, price from art
         </cfquery>
@@ -13,7 +17,7 @@
 
     <cffunction name="getArt" access="remote" returntype="struct" httpmethod="GET" restpath="{id}">
       <cfargument name="id" type="string" required="yes" restargsource="path">
-
+      <cfheader name="Access-Control-Allow-Origin" value="*">
       <cfquery name="art_piece" datasource="cfartgallery">
       select artid, artname, description, price from art where artid=#id#
       </cfquery>
@@ -30,6 +34,7 @@
       <cfargument name="description" type="string" required="yes" restargsource="form">
       <cfargument name="price" type="numeric" required="yes" restargsource="form">
 
+      <cfheader name="Access-Control-Allow-Origin" value="*">
       <cfquery name="saveArt" datasource="cfartgallery" result="result">
         insert into art (artname, description, price)
         values ('#artname#', '#description#', #price#)
@@ -44,6 +49,7 @@
       <cfargument name="artname" type="string" required="no" restargsource="form">
       <cfargument name="description" type="string" required="no" restargsource="form">
       <cfargument name="price" type="numeric" required="no" restargsource="form">
+      <cfheader name="Access-Control-Allow-Origin" value="*">
       <cfquery name="updateArt" datasource="cfartgallery">
         update art
         set
@@ -57,6 +63,7 @@
 
     <cffunction name="deleteArt" access="remote" returntype="void" httpmethod="DELETE" restpath="{id}">
       <cfargument name="id" type="string" required="yes" restargsource="path">
+      <cfheader name="Access-Control-Allow-Origin" value="*">
       <cfquery name="deleteArt" datasource="cfartgallery">
         delete from art
         where artid=#id#

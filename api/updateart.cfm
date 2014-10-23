@@ -1,3 +1,5 @@
+<cfheader name="Access-Control-Allow-Origin" value="*">
+
 <cfquery name="updateArt" datasource="cfartgallery">
   update art
   set
